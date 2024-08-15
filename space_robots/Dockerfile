@@ -37,8 +37,8 @@ LABEL org.label-schema.vcs-ref=${VCS_REF}
 
 # Define a few key variables
 ENV DEMO_DIR=${HOME_DIR}/demos_ws
-ENV IGNITION_VERSION fortress
-ENV GZ_VERSION fortress
+# ENV IGNITION_VERSION fortress
+ENV GZ_VERSION=harmonic
 
 # Disable prompting during package installation
 ARG DEBIAN_FRONTEND=noninteractive
@@ -79,6 +79,11 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
 RUN wget https://github.com/mongodb/mongo-cxx-driver/releases/download/r3.6.7/mongo-cxx-driver-r3.6.7.tar.gz
 RUN tar -xzf mongo-cxx-driver-r3.6.7.tar.gz
 RUN cd mongo-cxx-driver-r3.6.7/build && cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr/local && sudo cmake --build . --target EP_mnmlstc_core && cmake --build . && sudo cmake --build . --target install
+
+# Add osrf packages repository and manually install gz sim harmonic dependecies as they haven't been added to the rosdep index as of yet
+RUN sudo curl https://packages.osrfoundation.org/gazebo.gpg --output /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg
+RUN echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/gazebo-stable.list > /dev/null
+RUN sudo apt-get update && sudo apt-get install -y libgz-math7-dev libgz-transport13-dev libgz-sim8-dev libgz-msgs10-dev libgz-plugin2-dev
 
 # Get the source for the dependencies
 # RUN vcs import src < /tmp/demo_generated_pkgs.repos
