@@ -1,8 +1,8 @@
 repositories:
   demos:
     type: git
-    url: https://github.com/space-ros/demos.git
-    version: main
+    url: https://github.com/jasmeet0915/demos
+    version: jasmeet/custom_gz_plugins_pkg
   gz_ros2_control:
     type: git
     url: https://github.com/jasmeet0915/gz_ros2_control.git
@@ -25,8 +25,8 @@ repositories:
     version: humble
   simulation:
     type: git
-    url: https://github.com/space-ros/simulation.git
-    version: main
+    url: https://github.com/jasmeet0915/simulation
+    version: real_data_planet_models
   ros-humble-warehouse-ros-mongo:
     type: git
     url: https://github.com/ros-planning/warehouse_ros_mongo.git
