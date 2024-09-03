@@ -5,8 +5,8 @@ repositories:
     version: main
   gz_ros2_control:
     type: git
-    url: https://github.com/ros-controls/gz_ros2_control.git
-    version: humble
+    url: https://github.com/jasmeet0915/gz_ros2_control.git
+    version: jasmeet/humble_harmonic_support
   qt_gui_core:
     type: git
     url: https://github.com/ros-visualization/qt_gui_core.git
@@ -22,7 +22,7 @@ repositories:
   ros_gz:
     type: git
     url: https://github.com/gazebosim/ros_gz.git
-    version: jazzy
+    version: humble
   simulation:
     type: git
     url: https://github.com/space-ros/simulation.git
