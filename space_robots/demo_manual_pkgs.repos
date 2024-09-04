@@ -26,7 +26,7 @@ repositories:
   simulation:
     type: git
     url: https://github.com/jasmeet0915/simulation
-    version: real_data_planet_models
+    version: plugin_models
   ros-humble-warehouse-ros-mongo:
     type: git
     url: https://github.com/ros-planning/warehouse_ros_mongo.git
@@ -39,4 +39,4 @@ repositories:
     type: git
     url: https://github.com/swri-robotics/gps_umd.git
     path: gps_msgs
-    version: 113782d
+    version: 113782d   
